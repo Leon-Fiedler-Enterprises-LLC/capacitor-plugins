@@ -49,6 +49,7 @@ const showPrompt = async () => {
 * [`prompt(...)`](#prompt)
 * [`confirm(...)`](#confirm)
 * [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
@@ -115,11 +116,12 @@ Show a confirmation dialog
 
 #### AlertOptions
 
-| Prop              | Type                | Description                       | Default           | Since |
-| ----------------- | ------------------- | --------------------------------- | ----------------- | ----- |
-| **`title`**       | <code>string</code> | Title of the dialog.              |                   | 1.0.0 |
-| **`message`**     | <code>string</code> | Message to show on the dialog.    |                   | 1.0.0 |
-| **`buttonTitle`** | <code>string</code> | Text to use on the action button. | <code>"OK"</code> | 1.0.0 |
+| Prop              | Type                                                | Description                                                                                                                                                                                                                     | Default                | Since |
+| ----------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----- |
+| **`title`**       | <code>string</code>                                 | Title of the dialog.                                                                                                                                                                                                            |                        | 1.0.0 |
+| **`message`**     | <code>string</code>                                 | Message to show on the dialog.                                                                                                                                                                                                  |                        | 1.0.0 |
+| **`buttonTitle`** | <code>string</code>                                 | Text to use on the action button.                                                                                                                                                                                               | <code>"OK"</code>      | 1.0.0 |
+| **`buttonStyle`** | <code><a href="#buttonstyle">ButtonStyle</a></code> | Style of the action button. - `'default'`: Standard text - `'destructive'`: Red text (for dangerous actions like delete) - `'cancel'`: Cancel style - `'preferred'`: Emphasized bold blue button (the prominent primary action) | <code>"default"</code> | 6.0.0 |
 
 
 #### PromptResult
@@ -132,14 +134,16 @@ Show a confirmation dialog
 
 #### PromptOptions
 
-| Prop                    | Type                | Description                                | Default               | Since |
-| ----------------------- | ------------------- | ------------------------------------------ | --------------------- | ----- |
-| **`title`**             | <code>string</code> | Title of the dialog.                       |                       | 1.0.0 |
-| **`message`**           | <code>string</code> | Message to show on the dialog.             |                       | 1.0.0 |
-| **`okButtonTitle`**     | <code>string</code> | Text to use on the positive action button. | <code>"OK"</code>     | 1.0.0 |
-| **`cancelButtonTitle`** | <code>string</code> | Text to use on the negative action button. | <code>"Cancel"</code> | 1.0.0 |
-| **`inputPlaceholder`**  | <code>string</code> | Placeholder text for hints.                |                       | 1.0.0 |
-| **`inputText`**         | <code>string</code> | Prepopulated text.                         |                       | 1.0.0 |
+| Prop                    | Type                                                | Description                                | Default                | Since |
+| ----------------------- | --------------------------------------------------- | ------------------------------------------ | ---------------------- | ----- |
+| **`title`**             | <code>string</code>                                 | Title of the dialog.                       |                        | 1.0.0 |
+| **`message`**           | <code>string</code>                                 | Message to show on the dialog.             |                        | 1.0.0 |
+| **`okButtonTitle`**     | <code>string</code>                                 | Text to use on the positive action button. | <code>"OK"</code>      | 1.0.0 |
+| **`okButtonStyle`**     | <code><a href="#buttonstyle">ButtonStyle</a></code> | Style of the positive action button.       | <code>"default"</code> | 6.0.0 |
+| **`cancelButtonTitle`** | <code>string</code>                                 | Text to use on the negative action button. | <code>"Cancel"</code>  | 1.0.0 |
+| **`cancelButtonStyle`** | <code><a href="#buttonstyle">ButtonStyle</a></code> | Style of the negative action button.       | <code>"cancel"</code>  | 6.0.0 |
+| **`inputPlaceholder`**  | <code>string</code>                                 | Placeholder text for hints.                |                        | 1.0.0 |
+| **`inputText`**         | <code>string</code>                                 | Prepopulated text.                         |                        | 1.0.0 |
 
 
 #### ConfirmResult
@@ -151,11 +155,28 @@ Show a confirmation dialog
 
 #### ConfirmOptions
 
-| Prop                    | Type                | Description                                | Default               | Since |
-| ----------------------- | ------------------- | ------------------------------------------ | --------------------- | ----- |
-| **`title`**             | <code>string</code> | Title of the dialog.                       |                       | 1.0.0 |
-| **`message`**           | <code>string</code> | Message to show on the dialog.             |                       | 1.0.0 |
-| **`okButtonTitle`**     | <code>string</code> | Text to use on the positive action button. | <code>"OK"</code>     | 1.0.0 |
-| **`cancelButtonTitle`** | <code>string</code> | Text to use on the negative action button. | <code>"Cancel"</code> | 1.0.0 |
+| Prop                    | Type                                                | Description                                | Default                | Since |
+| ----------------------- | --------------------------------------------------- | ------------------------------------------ | ---------------------- | ----- |
+| **`title`**             | <code>string</code>                                 | Title of the dialog.                       |                        | 1.0.0 |
+| **`message`**           | <code>string</code>                                 | Message to show on the dialog.             |                        | 1.0.0 |
+| **`okButtonTitle`**     | <code>string</code>                                 | Text to use on the positive action button. | <code>"OK"</code>      | 1.0.0 |
+| **`okButtonStyle`**     | <code><a href="#buttonstyle">ButtonStyle</a></code> | Style of the positive action button.       | <code>"default"</code> | 6.0.0 |
+| **`cancelButtonTitle`** | <code>string</code>                                 | Text to use on the negative action button. | <code>"Cancel"</code>  | 1.0.0 |
+| **`cancelButtonStyle`** | <code><a href="#buttonstyle">ButtonStyle</a></code> | Style of the negative action button.       | <code>"cancel"</code>  | 6.0.0 |
+
+
+### Type Aliases
+
+
+#### ButtonStyle
+
+The style of a button in a dialog.
+
+- `'default'`: Standard action button (normal text)
+- `'destructive'`: Dangerous action button (red on all platforms) - use for delete, remove, etc.
+- `'cancel'`: Cancel/dismiss button
+- `'preferred'`: Emphasized primary action button (bold blue on iOS) - the prominent "fat" button
+
+<code>'default' | 'destructive' | 'cancel' | 'preferred'</code>
 
 </docgen-api>

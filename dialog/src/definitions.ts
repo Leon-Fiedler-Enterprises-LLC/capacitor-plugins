@@ -1,3 +1,15 @@
+/**
+ * The style of a button in a dialog.
+ *
+ * - `'default'`: Standard action button (normal text)
+ * - `'destructive'`: Dangerous action button (red on all platforms) - use for delete, remove, etc.
+ * - `'cancel'`: Cancel/dismiss button
+ * - `'preferred'`: Emphasized primary action button (bold blue on iOS) - the prominent "fat" button
+ *
+ * @since 6.0.0
+ */
+export type ButtonStyle = 'default' | 'destructive' | 'cancel' | 'preferred';
+
 export interface AlertOptions {
   /**
    * Title of the dialog.
@@ -8,7 +20,9 @@ export interface AlertOptions {
 
   /**
    * Message to show on the dialog.
+   * Supports **bold** text using double asterisks.
    *
+   * @example "Are you sure you want to delete **this item**?"
    * @since 1.0.0
    */
   message: string;
@@ -20,6 +34,19 @@ export interface AlertOptions {
    * @since 1.0.0
    */
   buttonTitle?: string;
+
+  /**
+   * Style of the action button.
+   *
+   * - `'default'`: Standard text
+   * - `'destructive'`: Red text (for dangerous actions like delete)
+   * - `'cancel'`: Cancel style
+   * - `'preferred'`: Emphasized bold blue button (the prominent primary action)
+   *
+   * @default "default"
+   * @since 6.0.0
+   */
+  buttonStyle?: ButtonStyle;
 }
 
 export interface PromptOptions {
@@ -32,7 +59,9 @@ export interface PromptOptions {
 
   /**
    * Message to show on the dialog.
+   * Supports **bold** text using double asterisks.
    *
+   * @example "Enter the name for **your new file**:"
    * @since 1.0.0
    */
   message: string;
@@ -46,12 +75,28 @@ export interface PromptOptions {
   okButtonTitle?: string;
 
   /**
+   * Style of the positive action button.
+   *
+   * @default "default"
+   * @since 6.0.0
+   */
+  okButtonStyle?: ButtonStyle;
+
+  /**
    * Text to use on the negative action button.
    *
    * @default "Cancel"
    * @since 1.0.0
    */
   cancelButtonTitle?: string;
+
+  /**
+   * Style of the negative action button.
+   *
+   * @default "cancel"
+   * @since 6.0.0
+   */
+  cancelButtonStyle?: ButtonStyle;
 
   /**
    * Placeholder text for hints.
@@ -78,7 +123,9 @@ export interface ConfirmOptions {
 
   /**
    * Message to show on the dialog.
+   * Supports **bold** text using double asterisks.
    *
+   * @example "Are you sure you want to delete **this item**?"
    * @since 1.0.0
    */
   message: string;
@@ -92,12 +139,28 @@ export interface ConfirmOptions {
   okButtonTitle?: string;
 
   /**
+   * Style of the positive action button.
+   *
+   * @default "default"
+   * @since 6.0.0
+   */
+  okButtonStyle?: ButtonStyle;
+
+  /**
    * Text to use on the negative action button.
    *
    * @default "Cancel"
    * @since 1.0.0
    */
   cancelButtonTitle?: string;
+
+  /**
+   * Style of the negative action button.
+   *
+   * @default "cancel"
+   * @since 6.0.0
+   */
+  cancelButtonStyle?: ButtonStyle;
 }
 
 export interface PromptResult {
